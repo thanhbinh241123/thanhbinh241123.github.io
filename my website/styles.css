@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e0f7fa; /* Thay đổi màu nền thành màu sáng (ví dụ: màu xanh nhạt) */
+    /* Các thuộc tính background-image, background-size, v.v... */
+}
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('z5898880129798_f5cc4ffaf28d6f190678794041cb48a6.jpg'),url('z5792609613724_a28ed8d6c340b2a956d48bf1e69d6ed1.jpg'), url('z5898880128509_143375a99eca75e1d87c5402fbaed2de.jpg');
+    background-size: 32%, 34%, 34%;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: center, right top, left bottom;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative; /* Đặt vị trí tương đối cho body */
+    overflow: hidden; /* Ẩn cuộn để không có thanh cuộn */
+}
+
+.snow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Không cho phép tương tác với các bông tuyết */
+}
+
+.drop {
+    background: rgb(247, 249, 247); /* Màu của bông tuyết */
+    border-radius: 50%; /* Giọt bông tuyết tròn */
+    position: absolute;
+    bottom: 100%; /* Đặt bông tuyết ở bên ngoài phía trên */
+    width: 15px; /* Đường kính của bông tuyết */
+    height: 15px; /* Đường kính của bông tuyết */
+    animation: fall linear infinite; /* Hoạt ảnh rơi */
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh); /* Rơi xuống phía dưới */
+    }
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+    z-index: 1; /* Đặt độ ưu tiên cho phần tử container */
+}
+
+h1 {
+    font-size: 24px;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.social-links img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 8px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover img {
+    transform: scale(1.1);
+}
+
+.social-links a:hover {
+    color: #0073e6;
+}
+.avatar {
+    width: 100px; /* Kích thước của ô tròn */
+    height: 100px; /* Kích thước của ô tròn */
+    border-radius: 50%; /* Biến thành hình tròn */
+    overflow: hidden; /* Ẩn phần vượt ra ngoài */
+    margin: 0 auto 20px; /* Giữa và tạo khoảng cách dưới */
+}
+
+.avatar img {
+    width: 100%; /* Chiều rộng ảnh bằng chiều rộng của ô tròn */
+    height: 100%; /* Chiều cao ảnh bằng chiều cao của ô tròn */
+    object-fit: cover; /* Đảm bảo ảnh không bị méo */
+}
