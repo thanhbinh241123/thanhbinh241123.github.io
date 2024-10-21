@@ -6,9 +6,12 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-size: cover;
+    background-image: url('z5898880129798_f5cc4ffaf28d6f190678794041cb48a6.jpg'), 
+                      url('z5792609613724_a28ed8d6c340b2a956d48bf1e69d6ed1.jpg'), 
+                      url('z5898880128509_143375a99eca75e1d87c5402fbaed2de.jpg');
+    background-size: 45%, 40%, 45%;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: 0 0, 100% 0, 200% 0;
     background-attachment: fixed;
     display: flex;
     justify-content: center;
@@ -17,22 +20,19 @@ body {
     position: relative;
     overflow: hidden;
     transition: background-color 0.3s;
-    animation: changeBackground 15s infinite; /* Thêm animation 15 giây và lặp vô hạn */
+    animation: slide-background 20s linear infinite; /* Thêm animation cho ảnh nền */
 }
-@keyframes changeBackground {
+
+/* Hoạt ảnh dịch chuyển nền theo chiều ngang */
+@keyframes slide-background {
     0% {
-        background-image: url('z5898880129798_f5cc4ffaf28d6f190678794041cb48a6.jpg');
-    }
-    33% {
-        background-image: url('z5792609613724_a28ed8d6c340b2a956d48bf1e69d6ed1.jpg');
-    }
-    66% {
-        background-image: url('z5898880128509_143375a99eca75e1d87c5402fbaed2de.jpg');
+        background-position: 0 0, 100% 0, 200% 0;
     }
     100% {
-        background-image: url('z5898880129798_f5cc4ffaf28d6f190678794041cb48a6.jpg'); /* Quay lại ảnh đầu */
+        background-position: -300% 0, -200% 0, -100% 0;
     }
 }
+
 
 /* Hiệu ứng tuyết rơi */
 .snow {
@@ -70,14 +70,25 @@ body {
 }
 /* Hiệu ứng đổi màu cho đoạn văn */
 .p-gradient-effect {
-    background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff); /* Màu gradient bạn muốn */
+    background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
     background-size: 200% 200%;
-    color: transparent;
+    color: transparent; /* Giữ transparent để áp dụng hiệu ứng gradient */
     background-clip: text;
     -webkit-background-clip: text;
     animation: p-gradient 5s ease infinite;
     font-size: 18px; /* Đặt kích thước font nhỏ hơn so với tiêu đề */
 }
+
+body.dark-mode .p-gradient-effect {
+    color: transparent; /* Giữ transparent để áp dụng hiệu ứng gradient */
+    background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff); /* Đảm bảo hiệu ứng gradient vẫn giữ */
+    background-clip: text; /* Đảm bảo áp dụng hiệu ứng cho văn bản */
+    -webkit-background-clip: text; /* Hỗ trợ cho trình duyệt webkit */
+    animation: p-gradient 5s ease infinite; /* Giữ hiệu ứng nhấp nháy */
+}
+
+
+
 
 @keyframes p-gradient {
     0% {
