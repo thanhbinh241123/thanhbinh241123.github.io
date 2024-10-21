@@ -243,5 +243,15 @@ body.dark-mode .container {
     background-color: rgba(50, 50, 50, 0.9);
     color: #e0e0e0;
 }
+.dark-mode {
+    background-color: #333; /* Màu nền tối */
+    color: #f0f0f0; /* Màu chữ sáng */
+}
+
+/* Thay đổi màu chữ cho các phần khác nếu cần */
+.dark-mode h1, .dark-mode p {
+    color: #ffffff; /* Màu chữ trắng cho h1 và p */
+}
+
 
 
