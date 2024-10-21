@@ -6,12 +6,9 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-image: url('z5898880129798_f5cc4ffaf28d6f190678794041cb48a6.jpg'), 
-                      url('z5792609613724_a28ed8d6c340b2a956d48bf1e69d6ed1.jpg'), 
-                      url('z5898880128509_143375a99eca75e1d87c5402fbaed2de.jpg');
-    background-size: 32%, 34%, 34%;
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position: center, right top, left bottom;
+    background-position: center;
     background-attachment: fixed;
     display: flex;
     justify-content: center;
@@ -19,9 +16,25 @@ body {
     height: 100vh;
     position: relative;
     overflow: hidden;
-    transition: background-color 0.3s; /* Hiệu ứng chuyển đổi nền */
+    transition: background-color 0.3s;
+    animation: changeBackground 15s infinite; /* Thêm animation 15 giây và lặp vô hạn */
+}
+@keyframes changeBackground {
+    0% {
+        background-image: url('z5898880129798_f5cc4ffaf28d6f190678794041cb48a6.jpg');
+    }
+    33% {
+        background-image: url('z5792609613724_a28ed8d6c340b2a956d48bf1e69d6ed1.jpg');
+    }
+    66% {
+        background-image: url('z5898880128509_143375a99eca75e1d87c5402fbaed2de.jpg');
+    }
+    100% {
+        background-image: url('z5898880129798_f5cc4ffaf28d6f190678794041cb48a6.jpg'); /* Quay lại ảnh đầu */
+    }
 }
 
+/* Hiệu ứng tuyết rơi */
 .snow {
     position: absolute;
     top: 0;
@@ -32,7 +45,7 @@ body {
 }
 
 .drop {
-    background: rgb(247, 249, 247);
+    background: rgba(0, 0, 0, 0.5); /* Màu đen cho bông tuyết trong chế độ sáng */
     border-radius: 50%;
     position: absolute;
     bottom: 100%;
@@ -40,6 +53,45 @@ body {
     height: 15px;
     animation: fall linear infinite;
 }
+.glow-effect {
+    font-size: 40px;
+    color: #fff;
+    text-align: center;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #ff00ff, 0 0 15px #ff00ff, 0 0 20px #ff00ff;
+    }
+    to {
+        text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+    }
+}
+/* Hiệu ứng đổi màu cho đoạn văn */
+.p-gradient-effect {
+    background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff); /* Màu gradient bạn muốn */
+    background-size: 200% 200%;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: p-gradient 5s ease infinite;
+    font-size: 18px; /* Đặt kích thước font nhỏ hơn so với tiêu đề */
+}
+
+@keyframes p-gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
 
 @keyframes fall {
     to {
@@ -47,6 +99,7 @@ body {
     }
 }
 
+/* Container chính */
 .container {
     background-color: rgba(255, 255, 255, 0.3);
     padding: 40px;
@@ -56,18 +109,21 @@ body {
     text-align: center;
     position: relative;
     z-index: 1;
-    transition: background-color 0.3s, color 0.3s; /* Hiệu ứng chuyển đổi cho container */
+    transition: background-color 0.3s, color 0.3s;
+    margin: 20px auto; /* Tạo khoảng cách giữa các đối tượng khác */
 }
 
 h1, p {
-    color: #000; /* Màu chữ sáng cho chế độ sáng */
-    transition: color 0.3s; /* Hiệu ứng chuyển đổi màu chữ */
+    color: #000;
+    transition: color 0.3s;
+    margin-bottom: 20px; /* Thêm khoảng cách dưới mỗi tiêu đề */
 }
 
 .social-links {
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
+    gap: 20px; /* Khoảng cách giữa các biểu tượng mạng xã hội */
 }
 
 .social-links a {
@@ -93,8 +149,8 @@ h1, p {
 }
 
 .avatar {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto 20px;
@@ -106,32 +162,29 @@ h1, p {
     object-fit: cover;
 }
 
-/* Dark Mode */
+/* Chế độ tối */
 body.dark-mode {
-    background-color: #121212; /* Nền tối */
-    color: #e0e0e0; /* Màu chữ sáng */
+    background-color: #121212;
+    color: #e0e0e0;
 }
 
 .container.dark-mode {
-    background-color: rgba(50, 50, 50, 0.9); /* Nền container tối */
+    background-color: rgba(50, 50, 50, 0.9);
 }
 
 h1.dark-mode, p.dark-mode {
-    color: #ffffff; /* Màu chữ trắng cho h1 và p */
+    color: #ffffff;
 }
 
 .social-links a.dark-mode {
-    color: #ccc; /* Màu chữ liên kết sáng hơn */
+    color: #ccc;
 }
 
 .social-links a.dark-mode:hover {
-    color: #fff; /* Màu khi hover */
+    color: #fff;
 }
 
-.avatar.dark-mode {
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Hiệu ứng sáng quanh avatar */
-}
-
+/* Nút */
 button {
     padding: 10px 20px;
     background-color: #0073e6;
@@ -139,8 +192,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    z-index: 10;
-    transition: background-color 0.3s; /* Hiệu ứng chuyển đổi cho nút */
+    transition: background-color 0.3s;
 }
 
 button:hover {
@@ -156,12 +208,13 @@ body.dark-mode button:hover {
     background-color: #555;
 }
 
-/* CSS cho nút chuyển đổi giống iPhone */
+/* Nút chuyển đổi chế độ tối */
 .switch {
     position: relative;
     display: inline-block;
     width: 60px;
     height: 34px;
+    margin-top: 20px;
 }
 
 .switch input {
@@ -201,45 +254,8 @@ input:checked + .slider {
 input:checked + .slider:before {
     transform: translateX(26px);
 }
-/* Dark Mode */
-body.dark-mode {
-    background-color: #121212; /* Nền tối */
-    color: #e0e0e0; /* Màu chữ sáng */
-}
 
-.container.dark-mode {
-    background-color: rgba(50, 50, 50, 0.9); /* Nền container tối */
-}
-
-h1, p {
-    color: #000; /* Màu chữ sáng cho chế độ sáng */
-    transition: color 0.3s; /* Hiệu ứng chuyển đổi màu chữ */
-}
-
-h1.dark-mode, p.dark-mode {
-    color: #ffffff; /* Màu chữ trắng cho h1 và p trong chế độ tối */
-}
-
-.social-links a {
-    color: #333; /* Màu chữ sáng cho chế độ sáng */
-}
-
-.social-links a.dark-mode {
-    color: #ccc; /* Màu chữ liên kết sáng hơn trong chế độ tối */
-}
-
-.social-links a.dark-mode:hover {
-    color: #fff; /* Màu khi hover trong chế độ tối */
-}
-
-/* Avatar shadow */
-.avatar {
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Hiệu ứng sáng quanh avatar */
-}
-
-.avatar.dark-mode {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Hiệu ứng tối quanh avatar trong chế độ tối */
-}
+/* Rung lắc */
 @keyframes shake {
     0% { transform: translateX(0); }
     25% { transform: translateX(-5px); }
@@ -248,15 +264,11 @@ h1.dark-mode, p.dark-mode {
     100% { transform: translateX(0); }
 }
 
-h1, p {
-    animation: shake 0.5s infinite; /* Áp dụng hiệu ứng rung lắc */
-}
-.drop {
-    background: rgba(0, 0, 0, 0.5); /* Màu đen cho bông tuyết trong chế độ sáng */
+h1:hover, p:hover {
+    animation: shake 0.5s; /* Chỉ rung khi hover */
 }
 
+/* Hiệu ứng tuyết trong chế độ tối */
 body.dark-mode .drop {
-    background: rgb(247, 249, 247); /* Màu trắng cho bông tuyết trong chế độ tối */
+    background: rgb(247, 249, 247);
 }
-
-
