@@ -26,11 +26,37 @@
             <a href="tel:+84969131711">
                 <img src="tải xuống.png" alt="Zalo" />
                 Zalo
-              </a>
-              
-            
+            </a>
         </div>
+
+        <!-- Thêm nút chuyển đổi giống iPhone -->
+        <label class="switch">
+            <input type="checkbox" id="darkModeToggle">
+            <span class="slider"></span>
+        </label>
+
     </div>
+
     <script src="script.js"></script>
+    <script>
+        const toggleSwitch = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        // Kiểm tra trạng thái hiện tại trong localStorage để duy trì chế độ sau khi tải lại trang
+        if (localStorage.getItem('dark-mode') === 'enabled') {
+            body.classList.add('dark-mode');
+            toggleSwitch.checked = true;
+        }
+
+        toggleSwitch.addEventListener('change', () => {
+            if (toggleSwitch.checked) {
+                body.classList.add('dark-mode');
+                localStorage.setItem('dark-mode', 'enabled'); // Lưu trạng thái vào localStorage
+            } else {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('dark-mode', 'disabled'); // Lưu trạng thái vào localStorage
+            }
+        });
+    </script>
 </body>
 </html>

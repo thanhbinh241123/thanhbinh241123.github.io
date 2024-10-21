@@ -5,7 +5,7 @@
 }
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #e0f7fa; /* Thay đổi màu nền thành màu sáng (ví dụ: màu xanh nhạt) */
+    background-color: #00BFFF; /* Thay đổi màu nền thành màu sáng (ví dụ: màu xanh nhạt) */
     /* Các thuộc tính background-image, background-size, v.v... */
 }
 
@@ -117,3 +117,131 @@ p {
     height: 100%; /* Chiều cao ảnh bằng chiều cao của ô tròn */
     object-fit: cover; /* Đảm bảo ảnh không bị méo */
 }
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212; /* Nền tối */
+    color: #e0e0e0; /* Màu chữ sáng */
+}
+
+body.dark-mode .container {
+    background-color: rgba(50, 50, 50, 0.9); /* Nền container tối */
+    color: #e0e0e0; /* Màu chữ container sáng */
+}
+
+body.dark-mode .social-links a {
+    color: #ccc; /* Màu chữ các liên kết sáng hơn */
+}
+
+body.dark-mode .social-links a:hover {
+    color: #fff; /* Màu khi hover */
+}
+
+body.dark-mode .avatar {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Hiệu ứng sáng quanh avatar */
+}
+button {
+    padding: 10px 20px;
+    background-color: #eff3f7;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #005bb5;
+}
+
+body.dark-mode button {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode button:hover {
+    background-color: #555;
+}
+button {
+    position: absolute;
+    top: 20px; /* Cách mép trên 20px */
+    right: 20px; /* Cách mép phải 20px */
+    padding: 10px 20px;
+    background-color: #0073e6;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 10; /* Đảm bảo nút nằm trên các thành phần khác */
+}
+
+button:hover {
+    background-color: #005bb5;
+}
+
+body.dark-mode button {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode button:hover {
+    background-color: #555;
+}
+/* CSS cho nút chuyển đổi giống iPhone */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-top: 20px; /* Thêm khoảng cách bên trên */
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Dark Mode khi kích hoạt */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .container {
+    background-color: rgba(50, 50, 50, 0.9);
+    color: #e0e0e0;
+}
+
+
