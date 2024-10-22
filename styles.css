@@ -351,29 +351,33 @@ body.dark-mode .social-links a {
     cursor: pointer; /* Thay đổi con trỏ khi hover */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Đổ bóng cho nút */
 }
-@keyframes move-icons {
+/* Hiệu ứng di chuyển ngẫu nhiên trong chế độ tối */
+@keyframes move-icons-random {
     0% {
         transform: translate(0, 0);
     }
     25% {
-        transform: translate(50px, -50px);
+        transform: translate(50px, -50px); /* Di chuyển lên góc phải */
     }
     50% {
-        transform: translate(-50px, 50px);
+        transform: translate(-50px, 50px); /* Di chuyển xuống góc trái */
     }
     75% {
-        transform: translate(-50px, -50px);
+        transform: translate(100px, -100px); /* Di chuyển lên nhiều hơn */
     }
     100% {
-        transform: translate(50px, 50px);
+        transform: translate(-100px, 100px); /* Di chuyển xuống nhiều hơn */
     }
 }
 
-body.dark-mode .social-links a {
-    animation: move-icons 5s linear infinite; /* Thêm hoạt ảnh cho các biểu tượng */
+@media (max-width: 768px) {
+    .avatar img {
+        width: 150px; /* Giảm kích thước avatar trên màn hình nhỏ */
+    }
+    .social-links a {
+        font-size: 14px; /* Giảm kích thước chữ */
+    }
 }
-
-
 
 
 
