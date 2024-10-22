@@ -126,7 +126,7 @@ body.dark-mode .p-gradient-effect {
     z-index: 1;
     transition: background-color 0.3s, color 0.3s;
     margin: 40px auto; /* Tạo khoảng cách giữa các đối tượng khác */
-    height: 80vh;
+    height: 90vh;
 }
 
 h1, p {
@@ -138,7 +138,7 @@ h1, p {
 .social-links {
     display: flex;
     justify-content: space-around;
-    margin-top: 70px;
+    margin-top: 20px;
     gap: 20px; /* Khoảng cách giữa các biểu tượng mạng xã hội */
 
   
@@ -236,7 +236,7 @@ body.dark-mode button:hover {
     width: 60px; /* Tăng kích thước chiều rộng */
     height: 40px; /* Tăng kích thước chiều cao */
     margin-top: 10px;
-    top: 100px;
+    top: 250px;
 }
 
 .slider:before {
@@ -351,33 +351,69 @@ body.dark-mode .social-links a {
     cursor: pointer; /* Thay đổi con trỏ khi hover */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Đổ bóng cho nút */
 }
-/* Hiệu ứng di chuyển ngẫu nhiên trong chế độ tối */
-@keyframes move-icons-random {
-    0% {
-        transform: translate(0, 0);
-    }
-    25% {
-        transform: translate(50px, -50px); /* Di chuyển lên góc phải */
-    }
-    50% {
-        transform: translate(-50px, 50px); /* Di chuyển xuống góc trái */
-    }
-    75% {
-        transform: translate(100px, -100px); /* Di chuyển lên nhiều hơn */
-    }
-    100% {
-        transform: translate(-100px, 100px); /* Di chuyển xuống nhiều hơn */
-    }
+.qr-code {
+    text-align: center; /* Căn giữa ảnh */
+    margin-top: 40px; /* Khoảng cách trên ảnh, có thể điều chỉnh */
+    margin-bottom: 20px; /* Khoảng cách dưới ảnh */
 }
 
-@media (max-width: 768px) {
-    .avatar img {
-        width: 150px; /* Giảm kích thước avatar trên màn hình nhỏ */
-    }
-    .social-links a {
-        font-size: 14px; /* Giảm kích thước chữ */
-    }
+.qr-code img {
+    width: 200px; /* Kích thước của ảnh mã QR */
+    height: auto; /* Giữ tỉ lệ ảnh */
+    border: 2px solid #0073e6; /* Đường viền xung quanh mã QR (tuỳ chọn) */
+    border-radius: 10px; /* Bo góc đường viền (tuỳ chọn) */
+    transition: transform 0.3s; /* Thêm hiệu ứng chuyển tiếp cho ảnh */
+    margin-top: -100px;
 }
 
+.qr-code img:hover {
+    transform: scale(1.05); /* Phóng to ảnh khi hover */
+}
+.qr-code {
+    text-align: center; /* Căn giữa ảnh */
+    margin-top: 20px; /* Khoảng cách trên ảnh */
+    margin-bottom:10px; /* Khoảng cách dưới ảnh */
+}
+
+.qr-note {
+    font-size: 25px; /* Kích thước font cho ghi chú */
+    color: transparent; /* Giữ transparent để áp dụng hiệu ứng gradient */
+    background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff); /* Màu gradient giống như chữ khác */
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text; /* Hỗ trợ cho trình duyệt webkit */
+    animation: p-gradient 5s ease infinite; /* Hiệu ứng nhấp nháy */
+    margin-top: 30px;
+    margin-bottom: 10px; /* Khoảng cách dưới ghi chú */
+    font-weight: bold; /* Làm đậm chữ ghi chú (tuỳ chọn) */
+}
+.STK {
+    font-size: 18px; /* Kích thước font cho số tài khoản */
+    color: transparent; /* Giữ transparent để áp dụng hiệu ứng gradient */
+    background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff); /* Màu gradient giống như chữ khác */
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text; /* Hỗ trợ cho trình duyệt webkit */
+    animation: p-gradient 5s ease infinite; /* Hiệu ứng nhấp nháy */
+    margin-top: 10px; /* Khoảng cách trên số tài khoản (tuỳ chỉnh) */
+}
+
+.qr-code {
+    display: none; /* Ẩn mã QR mặc định */
+}
+.social-links {
+    display: none; /* Ẩn tất cả các biểu tượng mạng xã hội theo mặc định */
+    justify-content: space-around;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+body.dark-mode .social-links {
+    display: flex; /* Hiển thị các biểu tượng mạng xã hội khi chế độ tối được bật */
+}
+body:not(.dark-mode) h1,
+body:not(.dark-mode) p {
+    display: none; /* Ẩn tiêu đề và đoạn văn khi ở chế độ sáng */
+}
 
 
