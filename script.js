@@ -42,3 +42,19 @@ document.addEventListener('DOMContentLoaded', () => {
 toggleSwitch.addEventListener('change', () => {
     toggleDarkMode(toggleSwitch.checked);
 });
+// Kiểm tra localStorage để xem chế độ tối có được bật hay không
+if (!localStorage.getItem('dark-mode')) {
+    document.body.classList.remove('dark-mode'); // Đặt chế độ sáng là mặc định
+}
+
+// Khi nhấn nút chuyển đổi chế độ tối
+document.querySelector('.switch input').addEventListener('change', function() {
+    if (this.checked) {
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('dark-mode', 'true'); // Lưu chế độ tối
+    } else {
+        document.body.classList.remove('dark-mode');
+        localStorage.removeItem('dark-mode'); // Xóa chế độ tối
+    }
+});
+
