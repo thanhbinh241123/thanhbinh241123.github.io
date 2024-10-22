@@ -6,12 +6,9 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-image: url('z5898880129798_f5cc4ffaf28d6f190678794041cb48a6.jpg'), 
-                      url('z5792609613724_a28ed8d6c340b2a956d48bf1e69d6ed1.jpg'), 
-                      url('z5898880128509_143375a99eca75e1d87c5402fbaed2de.jpg');
-    background-size: 45%, 40%, 45%;
+    background-size: 100%;
     background-repeat: no-repeat;
-    background-position: 0 0, 100% 0, 200% 0;
+    background-position: center;
     background-attachment: fixed;
     display: flex;
     justify-content: center;
@@ -19,19 +16,26 @@ body {
     height: 100vh;
     position: relative;
     overflow: hidden;
-    transition: background-color 0.3s;
-    animation: slide-background 20s linear infinite; /* Thêm animation cho ảnh nền */
+    transition: background-color 0.5s;
+    animation: slide-background 30s linear infinite; /* Animation thay đổi background */
 }
 
-/* Hoạt ảnh dịch chuyển nền theo chiều ngang */
 @keyframes slide-background {
     0% {
-        background-position: 0 0, 100% 0, 200% 0;
+        background-image: url('z5898880129798_f5cc4ffaf28d6f190678794041cb48a6.jpg');
+    }
+    33% {
+        background-image: url('z5792609613724_a28ed8d6c340b2a956d48bf1e69d6ed1.jpg');
+    }
+    66% {
+        background-image: url('z5898880128509_143375a99eca75e1d87c5402fbaed2de.jpg');
     }
     100% {
-        background-position: -300% 0, -200% 0, -100% 0;
+        background-image: url('z5898880129798_f5cc4ffaf28d6f190678794041cb48a6.jpg');
     }
 }
+
+
 
 
 /* Hiệu ứng tuyết rơi */
@@ -112,7 +116,7 @@ body.dark-mode .p-gradient-effect {
 
 /* Container chính */
 .container {
-    background-color: rgba(255, 255, 255, 0.3);
+   
     padding: 40px;
     border-radius: 20px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
