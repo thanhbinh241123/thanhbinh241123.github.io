@@ -236,7 +236,7 @@ body.dark-mode button:hover {
     width: 60px; /* Tăng kích thước chiều rộng */
     height: 40px; /* Tăng kích thước chiều cao */
     margin-top: 10px;
-    top: 250px;
+    top: 200px;
 }
 
 .slider:before {
