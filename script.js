@@ -2,7 +2,7 @@ const snowContainer = document.querySelector('.snow');
 const toggleSwitch = document.getElementById('darkModeToggle');
 const body = document.body;
 const qrCode = document.querySelector('.qr-code');
-const socialLinks = document.querySelector('.social-links'); // Lấy phần tử chứa biểu tượng mạng xã hội
+const socialLinks = document.querySelector('.social-links');
 const backgroundMusic = document.getElementById('backgroundMusic');
 
 function createSnow() {
@@ -34,6 +34,12 @@ function toggleDarkMode(isDark) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Thiết lập mặc định "disabled" nếu chưa có giá trị trong localStorage
+    if (localStorage.getItem('dark-mode') === null) {
+        localStorage.setItem('dark-mode', 'disabled');
+    }
+
+    // Kiểm tra trạng thái dark mode từ localStorage
     const isDarkModeEnabled = localStorage.getItem('dark-mode') === 'enabled';
     toggleDarkMode(isDarkModeEnabled);
     toggleSwitch.checked = isDarkModeEnabled; // Đánh dấu checkbox
@@ -42,19 +48,3 @@ document.addEventListener('DOMContentLoaded', () => {
 toggleSwitch.addEventListener('change', () => {
     toggleDarkMode(toggleSwitch.checked);
 });
-// Kiểm tra localStorage để xem chế độ tối có được bật hay không
-if (!localStorage.getItem('dark-mode')) {
-    document.body.classList.remove('dark-mode'); // Đặt chế độ sáng là mặc định
-}
-
-// Khi nhấn nút chuyển đổi chế độ tối
-document.querySelector('.switch input').addEventListener('change', function() {
-    if (this.checked) {
-        document.body.classList.add('dark-mode');
-        localStorage.setItem('dark-mode', 'true'); // Lưu chế độ tối
-    } else {
-        document.body.classList.remove('dark-mode');
-        localStorage.removeItem('dark-mode'); // Xóa chế độ tối
-    }
-});
-
