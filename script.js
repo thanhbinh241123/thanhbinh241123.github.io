@@ -34,12 +34,12 @@ function toggleDarkMode(isDark) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Thiết lập mặc định "disabled" nếu chưa có giá trị trong localStorage
-    if (localStorage.getItem('dark-mode') === null) {
+    // Nếu "dark-mode" chưa được lưu, đặt mặc định là "disabled"
+    if (!localStorage.getItem('dark-mode')) {
         localStorage.setItem('dark-mode', 'disabled');
     }
 
-    // Kiểm tra trạng thái dark mode từ localStorage
+    // Lấy trạng thái chế độ tối từ localStorage
     const isDarkModeEnabled = localStorage.getItem('dark-mode') === 'enabled';
     toggleDarkMode(isDarkModeEnabled);
     toggleSwitch.checked = isDarkModeEnabled; // Đánh dấu checkbox
